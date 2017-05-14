@@ -89,6 +89,7 @@ This app uses a few kind of security protecolls
 - OAuth protecol from Slack
 - Hashed sessions
 - User management for admins
+![OAuth](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/oauth.png)
 
 ## Install
 #### NODEJS
