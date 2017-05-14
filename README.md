@@ -50,9 +50,7 @@ You can visit the life app [here](http://socialscoutagency.com).
   * Delete
   * Edit
 
-![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user.png =100x20)
-
-![Invite](./invite_user.png =100x20)
+![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user.png)
 
 ## Events reference
 ### Server
@@ -71,7 +69,7 @@ You can visit the life app [here](http://socialscoutagency.com).
 ### Slack messenger
 * `on message` respond with message from command
 
-![Commands](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/commands.png =250x250)
+![Commands](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/commands.png)
 
 ### Process 
 1. Setup Ubuntu 14 server with NODEJS
@@ -96,7 +94,7 @@ This app uses a few kind of security protecolls
 - Hashed sessions
 - User management for admins
 
-![OAuth](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/oauth.png =250x250)
+![OAuth](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/oauth.png)
 
 ## Install
 #### NODEJS
