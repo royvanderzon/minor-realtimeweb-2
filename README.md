@@ -94,6 +94,14 @@ This app uses a few kind of security protecolls
 - Hashed sessions
 - User management for admins
 
+### OAuth permissions
+- Post messages to ocelot
+  autoresponder will be able to send messages to any channel or person on your team.
+- Access all content in ocelot
+  autoresponder will be able to read all messages, files, and profiles that you can access.
+- Receive all events from ocelot in realtime
+  autoresponder will be able to receive all messages and activity that occurs in ocelot as well as send messages on your behalf.
+
 ![OAuth](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/oauth2.png)
 
 ## Install
