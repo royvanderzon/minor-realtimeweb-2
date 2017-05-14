@@ -3,7 +3,7 @@
 ### What is Personal Slack Bot?
 You want some coffee? Now you can! With this app you can setup auto responses with a few clicks. Add the responses you want. And when you get back from the coffee machine all you message's are logged. If there are new messages this will be streamed realtime to your browser! You will answer to btw;)
 
-![Flow](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb/master/flow.jpg)
+![Flow](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/flow.jpg)
 
 ### Security
 This app uses a few kind of security protecolls
