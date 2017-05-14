@@ -39,9 +39,24 @@ This app uses a few kind of security protecolls
 * [X] Passowrord forget system
 
 ## Data life cycle
+### User
 1. User register
   * Trough email
   * Trough signup from login page
+2. User sets profile
+3. User connect with Slack (OAuth)
+4. User sets Slack commands
+5. User gets Slack messages
+6. User watces realtime dashboard
+### Admin
+1. Admin invite
+  * Create
+  * Extend
+  * Remove
+2. Admin users
+  * Create
+  * Delete
+  * Edit
 
 ## Events reference
 ### Server
@@ -59,6 +74,16 @@ This app uses a few kind of security protecolls
 * `disconnect internet` alert no internet
 ### Slack messenger
 * `on message` respond with message from command
+
+### Process 
+1. Setup Ubuntu 14 server with NODEJS
+2. Setup MONGODB
+3. Setup Ubuntu 14 server with NGINX
+4. Create html and css
+5. Create Database scheme
+6. Create user management system
+7. Create OAuth flow (Slack)
+8. Create realtime sockets to connect with Slack and Clients
 
 ### Design
 Slackbots design is based on Google Material design. This design is a nice and smooth. It is functional to because it feels natural. In this way the users can navigate trough this website much easier!
