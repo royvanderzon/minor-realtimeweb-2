@@ -50,7 +50,8 @@ You can visit the life app [here](http://socialscoutagency.com).
   * Delete
   * Edit
 
-![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user.png =250x250)
+![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user.png =100x20)
+![](./invite_user.png =100x20)
 
 ## Events reference
 ### Server
