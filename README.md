@@ -40,8 +40,8 @@ This app uses a few kind of security protecolls
 
 ## Data life cycle
 1. User register
-..* Trough email
-..* Trough signup from login page
+  * Trough email
+  * Trough signup from login page
 
 ## Events reference
 ### Server
