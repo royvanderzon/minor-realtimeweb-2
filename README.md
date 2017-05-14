@@ -38,6 +38,11 @@ This app uses a few kind of security protecolls
 * [X] Signup system
 * [X] Passowrord forget system
 
+## Data life cycle
+1. User register
+..* Trough email
+..* Trough signup from login page
+
 ## Events reference
 ### Server
 * `start` there starts a realtime Slack engine for each user
