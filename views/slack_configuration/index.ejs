@@ -1,0 +1,85 @@
+<%- include ../include/head.ejs %>
+
+<body>
+
+    
+    <%- include ../include/nav.ejs %>
+
+    <main>
+        <div class="inner">
+            <section id="main-content">
+                <h2>Connect with slack</h2>
+                <a href="https://slack.com/oauth/authorize?scope=identify,read,post,client&client_id=138372543094.172098618502" class="btn btn-primary button">Connect with slack</a>
+                <!-- <a href="https://slack.com/oauth/authorize?scope=identify,read,post,client&client_id=138372543094.172098618502&redirect_uri=http://<%= page.pageSettings.env.WEB_HOST %>/slack_configuration/redirect" class="btn btn-primary button">Connect with slack</a> -->
+                <!-- <a href="https://slack.com/oauth/authorize?scope=channels:read,channels:write,channels:history,chat:write:user,users.profile:read,users.profile:write,users:read,groups:history,im:history,mpim:history&client_id=138372543094.172098618502" class="btn btn-primary button">Connect with slack</a> -->
+                <hr>
+                <h2>Auto respond commands</h2>
+                <p>Add your commands</p>
+                <form action="/slack_configuration/save" method="post">
+                    <div class="command-container">
+                        <% if(user.command.length > 0){ %>
+                            <% user.command.map(function(command){ %>
+                                <div class="command">
+                                    <div class="form-group">
+                                        <label for="input_'+commandIterator+'" class="col-sm-3 control-label">Command <%= command.iterator %></label>
+                                        <div class="col-sm-9">
+                                            <input type="hidden" required name="iterator_<%= command.iterator %>" id="iterator_<%= command.iterator %>" value="<%= command.iterator %>" placeholder="iterator" class="form-control hide hidden node">
+                                            <input type="text" required name="input_<%= command.iterator %>" id="input_<%= command.iterator %>" value="<%= command.input %>" placeholder="input" class="form-control">
+                                            <input type="text" required name="respond_<%= command.iterator %>" id="respond_<%= command.iterator %>" value="<%= command.respond %>" placeholder="respond" class="form-control">
+                                            <button class="remove">&times;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    </div>
+                    <button class="add">ADD COMMAND</button>
+                    <button type="submit" class="btn btn-primary button">SAVE</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+    <script>
+        $(document).ready(function(){
+
+
+            <% if(user.command.length > 0){ %>
+                var commandIterator = <%= user.command.length %>;
+            <% } else { %>
+                var commandIterator = 0;
+            <% } %> 
+
+            var commandTemplate = function(){
+                commandIterator++
+                var html = ''
+                html += '<div class="command">'
+                html += '    <div class="form-group">'
+                html += '        <label for="input_'+commandIterator+'" class="col-sm-3 control-label">Command '+commandIterator+'</label>'
+                html += '        <div class="col-sm-9">'
+                html += '            <input type="hidden" required name="iterator_'+commandIterator+'" id="iterator_'+commandIterator+'" value="'+commandIterator+'" placeholder="iterator" class="form-control hide hidden node">'
+                html += '            <input type="text" required name="input_'+commandIterator+'" id="input_'+commandIterator+'" value="" placeholder="input" class="form-control">'
+                html += '            <input type="text" required name="respond_'+commandIterator+'" id="respond_'+commandIterator+'" value="" placeholder="respond" class="form-control">'
+                html += '            <button class="remove">&times;</button>'
+                html += '        </div>'
+                html += '    </div>'
+                html += '</div>'
+                return html
+            }
+
+            $('.add').click(function(e){
+                e.preventDefault()
+                $('.command-container').append(commandTemplate())
+            })
+
+            $('.command-container').on('click','.remove',function(e){
+                e.preventDefault()
+                $(this).parent().parent().parent().remove()
+            })
+
+        })
+    </script>
+    
+<%- include ../include/end.ejs %>

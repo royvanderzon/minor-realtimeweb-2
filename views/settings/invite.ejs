@@ -1,0 +1,79 @@
+<%- include ../include/head.ejs %>
+
+<body>
+    
+    <%- include ../include/nav.ejs %>
+
+        <main>
+            <div class="inner">
+                <section id="main-content">
+
+                    <div class="col-sm-6">
+                    <% console.log(notActiveUsers) %>
+                        <% if (message.length > 0) { %>
+                            <div class="alert alert-success"><%= message %></div>
+                        <% } %>
+                        <% if (errorMessage.length > 0) { %>
+                            <div class="alert alert-danger"><%= errorMessage %></div>
+                        <% } %>
+                        <div class="well">
+                            <h3>Invite user</h3>
+                            <hr>    
+                            <form action="/settings/invite" method="post">
+                                <div class="form-group">  
+                                    <label>Email</label>
+                                    <input type="email" name="emailOne" required placeholder="example@gmail.com" class="form-control">
+                                </div>
+                                <div class="form-group"> 
+                                    <label>Repeat email</label> 
+                                    <input type="email" name="emailTwo" required placeholder="example@gmail.com" class="form-control">
+                                </div>
+                                <div class="form-group">    
+                                    <button class="btn btn-success">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <h3>Active invites</h3>
+                    <hr>    
+                    <div class="active_invite_container">  
+                            <% for(var i = 0;i<notActiveUsers.length;i++){ %>
+                            <% 
+                                var expired = true;
+                                var differenceSeconds = page.pageSettings.inviteUserBuffer * 60 * 60 * 1000;
+                                if(((Number(notActiveUsers[i].mailInvite.release) + differenceSeconds) > Date.now()) ){
+                                    expired = false;
+                                };
+                            %>
+                                <div class="active_invite <% if(expired){ %>red<%}%>">
+                                    <div>
+                                        <span class="active_list_item"><%= notActiveUsers[i].local.email %></span>
+                                    </div>
+                                    <div>
+                                        <form action="/settings/extendInvite" method="POST" role="form" class="form-horizontal removeField">
+                                            <input type="text" class="form-control inputId hide none" id="inputId" name="inputId" value="<%= notActiveUsers[i]._id %>" placeholder="Input field">
+                                            <button type="submit" class="btn btn-primary btn-block">Extend <%= page.pageSettings.inviteUserBuffer %> hours</button>
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <form action="/settings/deleteUser" method="POST" role="form" class="form-horizontal removeField">
+                                            <input type="text" class="form-control inputId hide none" id="inputId" name="inputId" value="<%= notActiveUsers[i]._id %>" placeholder="Input field">
+                                            <button type="submit" class="btn btn-danger btn-block">Remove</button>
+                                        </form>
+                                    </div>
+                                </div>  
+                            <% } %>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+
+    <script>
+        $(document).ready(function(){
+        });
+    </script>
+    
+<%- include ../include/end.ejs %>

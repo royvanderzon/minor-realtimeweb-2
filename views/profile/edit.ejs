@@ -1,0 +1,176 @@
+<%- include ../include/head.ejs %>
+
+<body>
+
+    
+    <%- include ../include/nav.ejs %>
+
+    <main>
+        <div class="inner">
+            <section id="main-content">
+                <div class="container-fluid limitContainer">
+
+                    <form action="/profile/edit/changePassword" method="post">
+                        <button type="submit" class="btn btn-default pull-right btn-sm">Change password</button>
+                    </form>
+                    <div class="spacer"></div>
+
+                    <hr>
+
+                    <div class="space"></div>
+
+                    <div class="row">
+
+                        <!-- LOCAL INFORMATION -->
+                        <form action="/profile/edit" method="POST" id="uploadForm" role="form" class="form-horizontal" enctype="multipart/form-data">
+                            <div class="col-md-6 col-sm-12">
+                                <% if (message.length > 0) { %>
+                                    <div class="alert alert-warning"><%= message %></div>
+                                <% } %>
+                                <% if (succesMessage.length > 0) { %>
+                                    <div class="alert alert-success"><%= succesMessage %></div>
+                                <% } %>
+                                    <div class="well">
+                                        <legend>Edit profile</legend>
+                                        <div class="form-group">
+                                            <label for="slackUsername" class="col-sm-3 control-label">Slack username</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" required id="slackUsername" name="slackUsername" value="<% if(user.data.slackUsername){ %><%= user.data.slackUsername %><%};%>" placeholder="Slack username" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="firstName" class="col-sm-3 control-label">First name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" required id="firstName" name="firstName" value="<% if(user.data.firstName){ %><%= user.data.firstName %><%};%>" placeholder="First Name" class="form-control" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName" class="col-sm-3 control-label">Last name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" required id="lastName" name="lastName" value="<% if(user.data.lastName){ %><%= user.data.lastName %><%};%>" placeholder="Last Name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="adress" class="col-sm-3 control-label">Phone number</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" required name="number" id="number" placeholder="number" value="<% if(user.data.number){ %><%= user.data.number %><%};%>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" required name="birthDate" value="<% if(user.data.birthDate){ %><%= user.data.birthDate %><%};%>" id="birthDate" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upl" class="col-sm-3 control-label">Profile picture</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="upl" id="upl" multiple class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="country" class="col-sm-3 control-label">Country</label>
+                                            <div class="col-sm-9">
+                                                <select id="country" required name="country" class="form-control">
+                                                    <script>
+                                                        var selectedCountry = 'Netherlands';
+                                                        if('<%= user.data.country %>' != 'undefined'){
+                                                            selectedCountry = '<%= user.data.country %>';
+                                                        }
+                                                        var country_list = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+                                                        for(var i = 0;i<country_list.length;i++){
+                                                            if(country_list[i] == selectedCountry){
+                                                                document.write('<option selected value="'+country_list[i]+'">'+country_list[i]+'</option>');
+                                                            }else{
+                                                                document.write('<option value="'+country_list[i]+'">'+country_list[i]+'</option>');
+                                                            }
+                                                        }
+                                                    </script>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="city" class="col-sm-3 control-label">City</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="city" required value="<% if(user.data.city){ %><%= user.data.city %><%};%>" placeholder="city" name="city" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="adress" class="col-sm-3 control-label">Adress &amp; Zip</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" id="adress" required value="<% if(user.data.adress){ %><%= user.data.adress %><%};%>" placeholder="Streetname" name="adress" class="form-control">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" id="zip" required value="<% if(user.data.zip){ %><%= user.data.zip %><%};%>" placeholder="Zip code" name="zip" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3">Gender</label>
+                                            <div class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" <% if(user.data.gender == 'Female'){ %>checked<%};%> id="femaleRadio" name="gender" value="Female">Female
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" <% if(user.data.gender == 'Male'){ %>checked<%};%> id="maleRadio" name="gender" value="Male">Male
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" <% if(user.data.gender == 'Other'){ %>checked<%};%> id="uncknownRadio" name="gender" value="other">Other
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9 col-sm-offset-3 col-xs-12 col-xs-offset-0">
+                                                <button type="submit" class="btn btn-primary btn-block">Submit</button><span id = "status"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+
+        <script>
+            $(document).ready(function() {
+                //set same height .editSocialProfilePicture
+                $('.editSocialProfilePicture').each(function(index,value){
+                    console.log(index);
+                    console.log(value);
+                    $(value).height($(value).width());
+                });
+
+                //save all forms in #uploadForm
+                $('#uploadForm').submit(function() {
+                    $("#status").empty().text("Saving...");
+                });    
+            });
+
+            //set same height .editSocialProfilePicture
+            $(window).resize(function(){
+                $('.editSocialProfilePicture').each(function(index,value){
+                    console.log(index);
+                    console.log(value);
+                    $(value).height($(value).width());
+                });
+            });
+        </script>
+    
+<%- include ../include/end.ejs %>
+

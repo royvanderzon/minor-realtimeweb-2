@@ -1,0 +1,95 @@
+<%- include ../include/head.ejs %>
+
+<body>
+    
+    <%- include ../include/nav.ejs %>
+
+        <div class="container-fluid limitContainer">
+
+            <div class="page-header">
+                <h1><span class="fa fa-gears"></span> Settings</h1>
+            </div>
+
+            <div class="row">
+
+                <!-- SETTINGS INFORMATION -->
+                <div class="col-sm-6">
+                    <div class="well">
+                        <h3><span class="fa fa-gears"></span> Settings</h3>
+
+                            <p>
+                                <strong>id</strong>: <%= user._id %><br>
+                                <strong>email</strong>: <%= user.local.email %><br>
+                                <strong>password</strong>: <%= user.local.password %>
+                            </p>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h3><span class="fa fa-gears"></span> Users</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6">
+                                <h4>Enable user signup</h4>
+                                <input type="checkbox" name="userSignup" checked>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+
+    <script>
+        $(document).ready(function(){
+            $('input[name="userSignup"]').bootstrapSwitch('state', <%- settingsOptions.userSettings.userSignup %>);
+            $('input[name="userSignup"]').on('switchChange.bootstrapSwitch', function(event, state) {
+                var data = {
+                    settingChange: {
+                        prevState : !state,
+                        state : state,
+                        name : $(this).attr('name')
+                    }
+                }
+                //sendData post:
+                //1# data
+                //2# succes callback
+                //3# failure callback
+                sendData(data,function(){
+                    // console.log('success');
+                },function(){
+                    console.log('failure');
+                    $('input[name="userSignup"]').bootstrapSwitch('disabled',true);
+                });
+            });
+            var sendData = function(data,cbSucces,cbFailure){
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    url: '/settings/changeSetting',                      
+                    success: function(data) {
+                        // console.log(JSON.stringify(data));
+                        if(typeof cbSucces === "function"){
+                            cbSucces(data);
+                        }
+                    },
+                    error: function(data) {
+                        if(typeof cbFailure === "function"){
+                            cbFailure(data);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    
+<%- include ../include/end.ejs %>

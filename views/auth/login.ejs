@@ -1,0 +1,43 @@
+<%- include ../include/head.ejs %>
+
+<body>
+
+    
+    <%- include ../include/nav.ejs %>
+    <main>
+        <div class="inner">
+            <section id="main-content">
+                <% if (message.length > 0) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                <% } %>
+                <% if (messageLoginSuccess.length > 0) { %>
+                    <div class="alert alert-success"><%= messageLoginSuccess %></div>
+                <% } %>
+
+                <!-- LOGIN FORM -->
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" required value="" name="email">
+                    </div>
+                    <div class="spacer-1"></div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" required value="" name="password">
+                    </div>
+                    <div class="spacer-1"></div>
+                    <button type="submit" class="btn btn-warning btn-lg">Login</button>
+                </form>
+
+                <% if (message.length > 0) { %>
+                    <p>Forgot password? <a href="/forgetpassword">Reset</a></p>
+                <% } %>
+                
+                <%- include ../include/preLoginLinks.ejs %>
+            </section>
+        </div>
+    </main>
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+    
+<%- include ../include/end.ejs %>

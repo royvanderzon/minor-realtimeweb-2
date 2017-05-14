@@ -1,0 +1,286 @@
+<%- include ../include/head.ejs %>
+
+<body>
+
+        <!-- EDIT USER MODAL -->
+        <div id="editUser" class="modal fade hidden" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <form action="/settings/editUser" method="POST" role="form" class="form-horizontal">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group hidden hide none">
+                                <div class="col-sm-12">
+                                    <label for="email">ID</label>
+                                    <input type="text" class="form-control inputId" id="inputId" name="inputId" value="" placeholder="Input field">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="inputEmail" name="inputEmail" value="" placeholder="Input field">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="level">Level</label>
+                                    <input type="text" class="form-control" id="inputLevel" name="inputLevel" value="" placeholder="Input field">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <a href="#" class="toggleProfile">Toggle profile</a>
+                                </div>
+                            </div>
+                            <div class="showMore">
+                                <hr>
+                                <div class="form-group">
+                                    <label for="firstName" class="col-sm-3 control-label">First name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="firstName" name="firstName" value="" placeholder="First Name" class="form-control" autofocus>
+                                            <span class="help-block">First Name eg.: Harry</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="col-sm-3 control-label">Last name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="lastName" name="lastName" value="" placeholder="Last Name" class="form-control">
+                                        <span class="help-block">Last Name eg.: Smith</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adress" class="col-sm-3 control-label">Phone number</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" name="number" id="number" placeholder="number" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" name="birthDate" value="" id="birthDate" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="country" class="col-sm-3 control-label">Country</label>
+                                    <div class="col-sm-9">
+                                        <select id="country" name="country" class="form-control">
+                                            <script>
+                                                var country_list = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+                                                for(var i = 0;i<country_list.length;i++){
+                                                    document.write('<option class="country_option _'+(country_list[i].replace(/\s+/g, ''))+'" value="'+country_list[i]+'">'+country_list[i]+'</option>');
+                                                }
+                                            </script>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-3 control-label">City</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="city" value="" placeholder="City" name="city" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adress" class="col-sm-3 control-label">Adress &amp; Zip</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="adress" value="" placeholder="Streetname" name="adress" class="form-control">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" id="zip" value="" placeholder="Zip code" name="zip" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">Gender</label>
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="femaleRadio" name="gender" value="Female">Female
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="maleRadio" name="gender" value="Male">Male
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label class="radio-inline">
+                                                    <input type="radio" id="uncknownRadio" name="gender" value="Other">Other
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div type="input" class="btn btn-default pull-left toggleRemoveField">Remove</div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </form>
+                    <form action="/settings/deleteUser" method="POST" role="form" class="form-horizontal removeField">
+                        <div class="modal-footer">
+                            <input type="text" class="form-control inputId hide none" id="inputId" name="inputId" value="" placeholder="Input field">
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    
+    <%- include ../include/nav.ejs %>
+
+        <main>
+            <div class="inner">
+                <section id="main-content">
+                    <div>
+                        <ul class="jqFilterColumnsList hidden">
+                        <% for(var i = 0;i<tableSettings.titles.length;i++){ %>
+                            <li><a class="toggle-vis" data-column="<%= i %>"><%= tableSettings.titles[i].title %></a></li>
+                        <% } %>
+                        </ul>
+                    </div>
+                    <hr>    
+                    <table id="userList" class="display" width="100%"></table>
+                </section>
+            </div>
+        </main>
+
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+    <script>
+        var users = <%- users %>;
+
+        var dataSet = [];
+        var skipPush = false;
+
+        for(var i = 0;i<users.length;i++){
+            console.log(i);
+            // console.log(users[i].mailInvite.active);
+
+            if (typeof users[i].mailInvite != "undefined") {
+                if(users[i].mailInvite.active == false){
+                    skipPush = true;
+                }else{
+                    skipPush = false;
+                }
+            }else{
+                skipPush = false;
+            }
+
+
+            if(!skipPush){
+                var array = [];
+                array.push(users[i]._id);
+                array.push(users[i].local.email);
+                array.push(users[i].local.level);
+
+                array.push(users[i].data.firstName || '');
+                array.push(users[i].data.lastName || '');
+                array.push(users[i].data.birthDate || '');
+                array.push(users[i].data.gender || '');
+                array.push(users[i].data.country || '');
+                array.push(users[i].data.city || '');
+                array.push(users[i].data.number || '');
+                array.push(users[i].data.adress || '');
+                array.push(users[i].data.zip || '');
+
+                dataSet.push(array);
+            }
+        }
+         
+        $(document).ready(function() {
+            var table = $('#userList').DataTable( {
+                data: dataSet,
+                columns: <%- tableSettings.parseTitles %>,
+                "columnDefs": [
+                    {
+                        "targets": [ 0 ],
+                        "visible": false,
+                        "searchable": false
+                    },{
+                        "targets": [ 2 ],
+                        "visible": false
+                    },{
+                        "targets": [ 5 ],
+                        "visible": false
+                    },{
+                        "targets": [ 6 ],
+                        "visible": false
+                    },{
+                        "targets": [ 7 ],
+                        "visible": false
+                    },{
+                        "targets": [ 8 ],
+                        "visible": false
+                    },{
+                        "targets": [ 9 ],
+                        "visible": false
+                    },{
+                        "targets": [ 10 ],
+                        "visible": false
+                    },{
+                        "targets": [ 11 ],
+                        "visible": false
+                    }
+                ]
+            } );
+            $('#userList_length').addClass('form-group');
+            $('#userList_length select').addClass('form-control');
+            $('#userList_filter').addClass('form-group');
+            $('#userList_filter input').addClass('form-control');
+
+            $('#userList tbody').on('click', 'tr', function () {
+                var data = table.row( this ).data();
+                // alert( 'You clicked on '+data[0]+'\'s row' );
+                $('.inputId').val(data[0]);
+                $('#inputEmail').val(data[1]);
+                $('#inputLevel').val(data[2]);
+
+                $('#firstName').val(data[3]);
+                $('#lastName').val(data[4]);
+                $('#birthDate').val(data[5]);
+                $('#gender').val(data[6]);
+
+                $("input[name=gender]").removeAttr('checked');
+                $("input[name=gender][value='"+data[6]+"']").prop("checked",true);
+
+                $('.country_option').removeAttr('selected');
+                $('._'+(data[7].replace(/\s+/g, ''))).attr('selected','selected');
+
+                $('#city').val(data[8]);
+                $('#number').val(data[9]);
+                $('#adress').val(data[10]);
+                $('#zip').val(data[11]);
+
+                $('.showMore').hide(function(){
+                    $('.removeField').hide();
+                    $('#editUser').modal();
+                });
+            });
+            $('a.toggle-vis').on( 'click', function (e) {
+                e.preventDefault();
+                // Get the column API object
+                console.log(this);
+                var column = table.column( $(this).attr('data-column') );
+                // Toggle the visibility
+                console.log(column);
+                column.visible( ! column.visible() );
+            });
+            $('.toggleProfile').on( 'click', function (e) {
+                e.preventDefault();
+                $('.showMore').slideToggle('slow');
+            });
+            $('.toggleRemoveField').click(function(){
+                $('.removeField').slideToggle();
+            });
+        });
+    </script>
+    
+<%- include ../include/end.ejs %>

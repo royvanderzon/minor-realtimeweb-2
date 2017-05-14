@@ -1,0 +1,25 @@
+<%- include ../include/head.ejs %>
+
+<body>
+
+    
+    <%- include ../include/nav.ejs %>
+
+    <main>
+        <div class="inner">
+            <section id="main-content">
+                <h3 class="capital"><span class="fa fa-user"></span> Welcome, <%= user.data.firstName %> <%= user.data.lastName %></h3>
+                <hr>
+                <div class="roundImg" style="background-image:url(/uploads/<%= user.data.profileImg %>)"></div>
+                <p>
+                    <strong>id</strong>: <%= user._id %><br>
+                    <strong>email</strong>: <%= user.local.email %>
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <%- include ../include/footer.ejs %>
+    <%- include ../include/script.ejs %>
+    
+<%- include ../include/end.ejs %>
