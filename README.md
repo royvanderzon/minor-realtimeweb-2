@@ -50,6 +50,8 @@ You can visit the life app [here](http://socialscoutagency.com).
   * Delete
   * Edit
 
+![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user.png)
+
 ## Events reference
 ### Server
 * `start` there starts a realtime Slack engine for each user
@@ -66,6 +68,8 @@ You can visit the life app [here](http://socialscoutagency.com).
 * `disconnect internet` alert no internet
 ### Slack messenger
 * `on message` respond with message from command
+
+![Commands](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/commands.png)
 
 ### Process 
 1. Setup Ubuntu 14 server with NODEJS
@@ -90,7 +94,6 @@ This app uses a few kind of security protecolls
 - Hashed sessions
 - User management for admins
 
-slkdjfdslk
 ![OAuth](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/oauth.png)
 
 ## Install
