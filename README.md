@@ -8,14 +8,6 @@ You can visit the life app [here](http://socialscoutagency.com).
 
 ![Flow](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/flow.jpg)
 
-### Security
-This app uses a few kind of security protecolls
-- Bycrypt hashed password in MongoDB
-- Email expire invite links (for signup)
-- OAuth protecol from Slack
-- Hashed sessions
-- User management for admins
-
 ## Featurelist
 * [X] Add slack commands
 * [X] Autoresponds to Slack messages
@@ -90,6 +82,13 @@ Slackbots design is based on Google Material design. This design is a nice and s
 
 ### Security
 This app is made in **NODEJS** in combination with **MongoDB**. The servers starts a Slackbot engine for every users that is connected with Slack. This only happens when the user **successfully** completed the OAuth protecol from Slack. After this engine is started the collected data can be retreived only by the user who walked trough the protecol. It is not possible to get back the stored passwords. The login system compares the hashed password on a login attempt. When the user loses his password, it can re reset. The email link will expire in 24 hours by default. When this expire date is expired, the user can request a new "forget" link when the password is typed in wrong more than (1) times.
+
+This app uses a few kind of security protecolls
+- Bycrypt hashed password in MongoDB
+- Email expire invite links (for signup)
+- OAuth protecol from Slack
+- Hashed sessions
+- User management for admins
 
 ## Install
 #### NODEJS
