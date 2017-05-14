@@ -16,6 +16,15 @@ This app uses a few kind of security protecolls
 - Hashed sessions
 - User management for admins
 
+## Featurelist
+* [X] Add slack commands
+* [X] Autoresponds to Slack messages
+* [X] User management
+* [X] Email invite's
+* [X] Login system
+* [X] Signup system
+* [X] Passowrord forget system
+
 ## Wish list
 * [ ] Offline notifications when the client is disconnected with the server
 * [ ] Offline notifications when the server is disconnected with Slack
@@ -28,15 +37,6 @@ This app uses a few kind of security protecolls
 * Some user info can't be edited
 * The html list of in and out comming messages is endlesslong (no overflow)
 * No SSL connection
-
-## Featurelist
-* [X] Add slack commands
-* [X] Autoresponds to Slack messages
-* [X] User management
-* [X] Email invite's
-* [X] Login system
-* [X] Signup system
-* [X] Passowrord forget system
 
 ## Data life cycle
 ### User
