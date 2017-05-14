@@ -124,51 +124,39 @@ MONGODB=mongodb://127.0.0.1/rtw
 In this project tooling is done with NPM scripts. You can find more information [here](https://docs.npmjs.com/misc/scripts).
 
 #### NPM Run scripts
-Minify the css to `/public/dist/css/styles.min.css`
-```bash
-$ npm run css:minify
-```
-Convert css/sass to `./public/dist/css/styles.css`
-```bash
-$ npm run css:compress
-```
-Rebuild css on filechange (*.css)
-```bash
-$ npm run css:watch
-```
-Minify js to `/public/dist/js/bundle.min.js`
-```bash
-$ npm run js:minify
-```
-Bundle js to `/public/dist/js/bundle.js`
-```bash
-$ npm run js:browserify
-```
-Bundle and minify js
-```bash
-$ npm run js:compress
-```
-Watch js on filechange (*.js) bundle and minify
-```bash
-$ npm run js:watch
-```
-Watch js and css on filechange bundle and minify
-```bash
-$ npm run client:watch
-```
-Watch server js on filechange restart app.js *(nodemon)*
-```bash
-$ npm run server:watch
-```
-Watch all server js, client js and css. Bundle, minify and restart on filechange
-```bash
-$ npm run all:watch
-```
-Minify all client js and css
-```bash
-$ npm run build
-```
-Watch server js on filechange restart app.js *(nodemon)*
-```bash
-$ npm run start
-```
+| Task                                                                             | Command                           |
+|----------------------------------------------------------------------------------|-----------------------------------|
+| Minify the css to `/public/dist/css/styles.min.css`                              | ```bash$ npm run css:minify```    |
+| Convert css/sass to `./public/dist/css/styles.css`                               | ```bash$ npm run css:compress```  |
+| Rebuild css on filechange (*.css)                                                | ```bash$ npm run css:watch```     |
+| Minify js to `/public/dist/js/bundle.min.js`                                     | ```bash$ npm run js:minify```     |
+| Bundle js to `/public/dist/js/bundle.js`                                         | ```bash$ npm run js:browserify``` |
+| Bundle and minify js                                                             | ```bash$ npm run js:compress```   |
+| Watch js on filechange (*.js) bundle and minify                                  | ```bash$ npm run js:watch```      |
+| Watch js and css on filechange bundle and minify                                 | ```bash$ npm run client:watch```  |
+| Watch server js on filechange restart app.js *(nodemon)*                         | ```bash$ npm run server:watch```  |
+| Watch all server js, client js and css. Bundle, minify and restart on filechange | ```bash$ npm run all:watch```     |
+| Minify all client js and css                                                     | ```bash$ npm run build```         |
+| Watch server js on filechange restart app.js *(nodemon)*                         | ```bash$ npm run start```         |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
