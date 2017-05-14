@@ -51,6 +51,7 @@ You can visit the life app [here](http://socialscoutagency.com).
   * Edit
 
 ![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user.png =100x20)
+
 ![](./invite_user.png =100x20)
 
 ## Events reference
