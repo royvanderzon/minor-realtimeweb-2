@@ -134,7 +134,7 @@ In this project tooling is done with NPM scripts. You can find more information 
 #### NPM Run scripts
 | Task                                                                             | Command                           |
 |----------------------------------------------------------------------------------|-----------------------------------|
-| Minify the css to `/public/dist/css/styles.min.css`                              | ```bash$ npm run css:minify```    |
+| Minify the css to `/public/dist/css/styles.min.css`                              | ```bash $ npm run css:minify```    |
 | Convert css/sass to `./public/dist/css/styles.css`                               | ```bash$ npm run css:compress```  |
 | Rebuild css on filechange (*.css)                                                | ```bash$ npm run css:watch```     |
 | Minify js to `/public/dist/js/bundle.min.js`                                     | ```bash$ npm run js:minify```     |
