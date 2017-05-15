@@ -33,8 +33,8 @@ You can visit the life app [here](http://socialscoutagency.com).
 ## Data life cycle
 ### User
 1. User register
-  * Trough email
-  * Trough signup from login page
+   * Trough email
+   * Trough signup from login page
 2. User sets profile
 3. User connect with Slack (OAuth)
 4. User sets Slack commands
@@ -42,13 +42,13 @@ You can visit the life app [here](http://socialscoutagency.com).
 6. User watces realtime dashboard
 ### Admin
 1. Admin invite
-  * Create
-  * Extend
-  * Remove
+   * Create
+   * Extend
+   * Remove
 2. Admin users
-  * Create
-  * Delete
-  * Edit
+   * Create
+   * Delete
+   * Edit
 
 ![Invite](https://raw.githubusercontent.com/royvanderzon/minor-realtimeweb-2/master/invite_user2.png)
 
